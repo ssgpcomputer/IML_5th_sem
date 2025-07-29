@@ -1,0 +1,31 @@
+
++ Start-Service ssh-agent
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (System.ServiceProcess.ServiceController:ServiceController) [Start-Service],
+   ServiceCommandException
+    + FullyQualifiedErrorId : CouldNotStartService,Microsoft.PowerShell.Commands.StartServiceCommand
+
+PS C:\Windows\system32> Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Client*'
+
+
+Name  : OpenSSH.Client~~~~0.0.1.0
+State : Installed
+
+
+
+PS C:\Windows\system32> Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+
+
+Path          :
+Online        : True
+RestartNeeded : False
+
+
+
+PS C:\Windows\system32> Set-Service -Name ssh-agent -StartupType Manual
+PS C:\Windows\system32>
+PS C:\Windows\system32> Start-Service ssh-agent
+PS C:\Windows\system32>
+PS C:\Windows\system32> ssh-add $HOME\.ssh\id_rsa
+Identity added: C:\Users\acer\.ssh\id_rsa (ssgpcomputer@gmail.com)
+PS C:\Windows\system32>
