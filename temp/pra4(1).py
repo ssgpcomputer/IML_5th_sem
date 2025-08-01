@@ -1,0 +1,11 @@
+import numpy as np
+a=np.array([1,2,3])
+b=np.array([5,6,7])
+d=np.add(a,b)
+print(d)
+e=np.subtract(a,b)
+print(e)
+f=np.multiply(a,b)
+print(f)
+g=np.divide(a,b)
+print(g)
